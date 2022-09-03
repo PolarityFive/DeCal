@@ -190,8 +190,13 @@
     </QtUic>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseElement.cpp" />
+    <ClCompile Include="Columns.cpp" />
+    <ClCompile Include="Gutter.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Margin.cpp" />
+    <ClCompile Include="Values.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h">
@@ -220,7 +225,12 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseElement.h" />
+    <ClInclude Include="Columns.h" />
+    <ClInclude Include="Gutter.h" />
+    <ClInclude Include="Margin.h" />
     <ClInclude Include="Values.h" />
+    <ClInclude Include="Width.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
