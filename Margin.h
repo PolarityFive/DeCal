@@ -7,7 +7,6 @@ private:
 	unsigned const int DEFAULT_MARGIN = 30;
 public:
 	Margin();
-	~Margin();
 	unsigned int getMargin();
 	void setMargin(unsigned int margin);
 };

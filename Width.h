@@ -3,11 +3,10 @@
 class Width
 {
 private:
-	int width;
+	unsigned int width;
 
 public:
 	Width();
-	~Width();
-	int getWidth();
-	void setWidth();
+	unsigned int getWidth();
+	void setWidth(unsigned int width);
 };

@@ -8,22 +8,22 @@ BaseElement::BaseElement()
 
 bool BaseElement::isInvariable()
 {
-    return (this->invariable ? true : false);
+    return (this->invariable);
 }
 
 bool BaseElement::isPreferred()
 {
-    return(this->preferred ? true : false);
+    return(this->preferred);
 }
 
 void BaseElement::setInvariable(bool invariable)
 {
-    this->invariable = (invariable ? true : false);
+    this->invariable = invariable;
 }
 
 void BaseElement::setPreferred(bool preferred)
 {
-    this->preferred = (preferred ? true : false);
+    this->preferred = preferred;
 }
 
 

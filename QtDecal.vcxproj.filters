@@ -38,6 +38,24 @@
     <Filter Include="Resource Files">
       <UniqueIdentifier>{420770f0-cc67-4c19-af93-d000dc8e8697}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Controller">
+      <UniqueIdentifier>{363abf57-4263-4c70-8a8b-4a957c07c2ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controller\Header Files">
+      <UniqueIdentifier>{afd17436-6b4a-49b8-aff9-325f9a13fe3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controller\Source Files">
+      <UniqueIdentifier>{2e9a9090-bc52-41ab-b05c-04764142f187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service">
+      <UniqueIdentifier>{dcf46410-81fd-442e-a06e-e6e32843c9d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service\Header Files">
+      <UniqueIdentifier>{96eca6ec-1285-45b3-a44a-559362b6a386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service\Source Files">
+      <UniqueIdentifier>{a9f42468-791d-4b13-b9b3-90ae65b75e19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainWindow.cpp">
@@ -49,9 +67,6 @@
     <ClCompile Include="Gutter.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Values.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="Columns.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
@@ -59,7 +74,19 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="Margin.cpp">
-      <Filter>Generated Files</Filter>
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculationController.cpp">
+      <Filter>Controller\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculationService.cpp">
+      <Filter>Service\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Width.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultValues.cpp">
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,9 +108,6 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Values.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Width.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -97,6 +121,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaseElement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculationController.h">
+      <Filter>Controller\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculationService.h">
+      <Filter>Service\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultValues.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

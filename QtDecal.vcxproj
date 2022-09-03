@@ -191,12 +191,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseElement.cpp" />
+    <ClCompile Include="CalculationController.cpp" />
+    <ClCompile Include="CalculationService.cpp" />
     <ClCompile Include="Columns.cpp" />
     <ClCompile Include="Gutter.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Margin.cpp" />
-    <ClCompile Include="Values.cpp" />
+    <ClCompile Include="ResultValues.cpp" />
+    <ClCompile Include="Width.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h">
@@ -226,10 +229,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseElement.h" />
+    <ClInclude Include="CalculationController.h" />
+    <ClInclude Include="CalculationService.h" />
     <ClInclude Include="Columns.h" />
     <ClInclude Include="Gutter.h" />
     <ClInclude Include="Margin.h" />
-    <ClInclude Include="Values.h" />
+    <ClInclude Include="ResultValues.h" />
     <ClInclude Include="Width.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

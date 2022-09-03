@@ -2,7 +2,7 @@
 
 Gutter::Gutter()
 {
-    this->size = 0;
+    this->size = 2;
 }
 
 unsigned int Gutter::getSize()

@@ -1,12 +1,11 @@
 #pragma once
 #include "BaseElement.h"
-class Gutter : protected BaseElement
+class Gutter : public BaseElement
 {
 private:
 	unsigned int size;
 public:
 	Gutter();
-	~Gutter();
 	unsigned int getSize();
 	void setSize(unsigned int size);
 };

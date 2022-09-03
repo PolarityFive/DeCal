@@ -8,7 +8,6 @@ protected:
 
 public:
 	BaseElement();
-	~BaseElement();
 
 	virtual bool isInvariable();
 	virtual bool isPreferred();
