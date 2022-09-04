@@ -3,6 +3,8 @@
 Gutter::Gutter()
 {
     this->size = 2;
+    this->min = 2;
+    this->max = 30;
 }
 
 unsigned int Gutter::getSize()

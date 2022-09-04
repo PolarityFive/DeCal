@@ -22,13 +22,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void handleButtonClick();
-    void handleDefaultsButtonClick();
+    void handleCurrentValuesButtonClick();
+    void handleFindSolutionButtonClick();
 
     void getDataFromUi(Width& width, Margin& margin, Gutter& gutter, Columns& columns);
     void getDataFromUi(Width& width, Margin& margin);
 
-    void displayCalculationResults(std::vector<ResultValues>& resultValues);
+    void displayResults(std::vector<ResultValues>& resultList);
+    void processResults(std::vector<ResultValues>& resultList);
+    void styleText();
     
 
 private:

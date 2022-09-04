@@ -3,6 +3,8 @@
 Columns::Columns()
 {
 	this->columns = this->DEFAULT_COLUMNS;
+	this->min = 12;
+	this->max = 60;
 }
 
 unsigned int Columns::getColumns()

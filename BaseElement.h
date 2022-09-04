@@ -6,6 +6,9 @@ protected:
 	bool invariable;
 	bool preferred;
 
+	unsigned int min;
+	unsigned int max;
+
 public:
 	BaseElement();
 
@@ -14,4 +17,10 @@ public:
 
 	virtual void setInvariable(bool invariable);
 	virtual void setPreferred(bool preferred);
+
+	virtual void setMin(unsigned int min);
+	virtual void setMax(unsigned int max);
+
+	virtual unsigned int getMin();
+	virtual unsigned int getMax();
 };

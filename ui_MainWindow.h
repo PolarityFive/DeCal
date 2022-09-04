@@ -32,7 +32,7 @@ public:
     QLabel *marginLabel;
     QLabel *gutterSizeLabel;
     QLabel *columnsLabel;
-    QPushButton *calculateButton;
+    QPushButton *calculateCurrentValuesButton;
     QCheckBox *gutterInvariableCheckBox;
     QCheckBox *gutterPreferredCheckBox;
     QCheckBox *columnInvariableCheckBox;
@@ -42,7 +42,13 @@ public:
     QLineEdit *gutterSizeLineEdit;
     QLineEdit *columnsLineEdit;
     QTableWidget *tableWidget;
-    QPushButton *calculateDefaultsButton;
+    QPushButton *findSolutionButton;
+    QLineEdit *gutterSizeMinLineEdit;
+    QLineEdit *gutterSizeMaxLineEdit;
+    QLineEdit *columnsMinLineEdit;
+    QLineEdit *columnsMaxLineEdit;
+    QLabel *minLabel;
+    QLabel *maxLabel;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -50,7 +56,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1021, 725);
+        MainWindow->resize(1226, 901);
         QFont font;
         font.setBold(true);
         MainWindow->setFont(font);
@@ -75,39 +81,39 @@ public:
         columnsLabel->setObjectName(QString::fromUtf8("columnsLabel"));
         columnsLabel->setGeometry(QRect(0, 150, 101, 20));
         columnsLabel->setFont(font1);
-        calculateButton = new QPushButton(centralwidget);
-        calculateButton->setObjectName(QString::fromUtf8("calculateButton"));
-        calculateButton->setEnabled(true);
-        calculateButton->setGeometry(QRect(0, 210, 251, 41));
-        calculateButton->setMinimumSize(QSize(20, 20));
-        calculateButton->setFont(font1);
+        calculateCurrentValuesButton = new QPushButton(centralwidget);
+        calculateCurrentValuesButton->setObjectName(QString::fromUtf8("calculateCurrentValuesButton"));
+        calculateCurrentValuesButton->setEnabled(true);
+        calculateCurrentValuesButton->setGeometry(QRect(250, 200, 251, 41));
+        calculateCurrentValuesButton->setMinimumSize(QSize(20, 20));
+        calculateCurrentValuesButton->setFont(font1);
         gutterInvariableCheckBox = new QCheckBox(centralwidget);
         gutterInvariableCheckBox->setObjectName(QString::fromUtf8("gutterInvariableCheckBox"));
-        gutterInvariableCheckBox->setGeometry(QRect(260, 110, 81, 21));
+        gutterInvariableCheckBox->setGeometry(QRect(290, 110, 81, 21));
         gutterInvariableCheckBox->setChecked(true);
         gutterPreferredCheckBox = new QCheckBox(centralwidget);
         gutterPreferredCheckBox->setObjectName(QString::fromUtf8("gutterPreferredCheckBox"));
-        gutterPreferredCheckBox->setGeometry(QRect(360, 110, 81, 21));
+        gutterPreferredCheckBox->setGeometry(QRect(400, 110, 81, 21));
         gutterPreferredCheckBox->setChecked(false);
         columnInvariableCheckBox = new QCheckBox(centralwidget);
         columnInvariableCheckBox->setObjectName(QString::fromUtf8("columnInvariableCheckBox"));
-        columnInvariableCheckBox->setGeometry(QRect(260, 150, 81, 21));
+        columnInvariableCheckBox->setGeometry(QRect(290, 150, 81, 21));
         columnInvariableCheckBox->setChecked(true);
         columnPreferredCheckBox = new QCheckBox(centralwidget);
         columnPreferredCheckBox->setObjectName(QString::fromUtf8("columnPreferredCheckBox"));
-        columnPreferredCheckBox->setGeometry(QRect(360, 150, 81, 21));
+        columnPreferredCheckBox->setGeometry(QRect(400, 150, 81, 21));
         widthLineEdit = new QLineEdit(centralwidget);
         widthLineEdit->setObjectName(QString::fromUtf8("widthLineEdit"));
-        widthLineEdit->setGeometry(QRect(130, 30, 121, 22));
+        widthLineEdit->setGeometry(QRect(130, 30, 41, 22));
         marginLineEdit = new QLineEdit(centralwidget);
         marginLineEdit->setObjectName(QString::fromUtf8("marginLineEdit"));
-        marginLineEdit->setGeometry(QRect(130, 70, 121, 22));
+        marginLineEdit->setGeometry(QRect(130, 70, 41, 22));
         gutterSizeLineEdit = new QLineEdit(centralwidget);
         gutterSizeLineEdit->setObjectName(QString::fromUtf8("gutterSizeLineEdit"));
-        gutterSizeLineEdit->setGeometry(QRect(130, 110, 121, 22));
+        gutterSizeLineEdit->setGeometry(QRect(130, 110, 41, 22));
         columnsLineEdit = new QLineEdit(centralwidget);
         columnsLineEdit->setObjectName(QString::fromUtf8("columnsLineEdit"));
-        columnsLineEdit->setGeometry(QRect(130, 150, 121, 22));
+        columnsLineEdit->setGeometry(QRect(130, 150, 41, 22));
         tableWidget = new QTableWidget(centralwidget);
         if (tableWidget->columnCount() < 4)
             tableWidget->setColumnCount(4);
@@ -120,20 +126,38 @@ public:
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-        tableWidget->setGeometry(QRect(0, 310, 471, 291));
+        tableWidget->setGeometry(QRect(0, 310, 471, 551));
         tableWidget->setShowGrid(true);
         tableWidget->setSortingEnabled(true);
         tableWidget->setColumnCount(4);
-        calculateDefaultsButton = new QPushButton(centralwidget);
-        calculateDefaultsButton->setObjectName(QString::fromUtf8("calculateDefaultsButton"));
-        calculateDefaultsButton->setEnabled(true);
-        calculateDefaultsButton->setGeometry(QRect(250, 210, 251, 41));
-        calculateDefaultsButton->setMinimumSize(QSize(20, 20));
-        calculateDefaultsButton->setFont(font1);
+        findSolutionButton = new QPushButton(centralwidget);
+        findSolutionButton->setObjectName(QString::fromUtf8("findSolutionButton"));
+        findSolutionButton->setEnabled(true);
+        findSolutionButton->setGeometry(QRect(0, 200, 251, 41));
+        findSolutionButton->setMinimumSize(QSize(20, 20));
+        findSolutionButton->setFont(font1);
+        gutterSizeMinLineEdit = new QLineEdit(centralwidget);
+        gutterSizeMinLineEdit->setObjectName(QString::fromUtf8("gutterSizeMinLineEdit"));
+        gutterSizeMinLineEdit->setGeometry(QRect(180, 110, 41, 22));
+        gutterSizeMaxLineEdit = new QLineEdit(centralwidget);
+        gutterSizeMaxLineEdit->setObjectName(QString::fromUtf8("gutterSizeMaxLineEdit"));
+        gutterSizeMaxLineEdit->setGeometry(QRect(230, 110, 41, 22));
+        columnsMinLineEdit = new QLineEdit(centralwidget);
+        columnsMinLineEdit->setObjectName(QString::fromUtf8("columnsMinLineEdit"));
+        columnsMinLineEdit->setGeometry(QRect(180, 150, 41, 22));
+        columnsMaxLineEdit = new QLineEdit(centralwidget);
+        columnsMaxLineEdit->setObjectName(QString::fromUtf8("columnsMaxLineEdit"));
+        columnsMaxLineEdit->setGeometry(QRect(230, 150, 41, 22));
+        minLabel = new QLabel(centralwidget);
+        minLabel->setObjectName(QString::fromUtf8("minLabel"));
+        minLabel->setGeometry(QRect(180, 90, 21, 16));
+        maxLabel = new QLabel(centralwidget);
+        maxLabel->setObjectName(QString::fromUtf8("maxLabel"));
+        maxLabel->setGeometry(QRect(230, 90, 31, 16));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1021, 22));
+        menubar->setGeometry(QRect(0, 0, 1226, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -141,8 +165,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        calculateButton->setDefault(false);
-        calculateDefaultsButton->setDefault(false);
+        calculateCurrentValuesButton->setDefault(false);
+        findSolutionButton->setDefault(false);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -155,7 +179,7 @@ public:
         marginLabel->setText(QCoreApplication::translate("MainWindow", "Margin", nullptr));
         gutterSizeLabel->setText(QCoreApplication::translate("MainWindow", "Gutter Size", nullptr));
         columnsLabel->setText(QCoreApplication::translate("MainWindow", "Columns", nullptr));
-        calculateButton->setText(QCoreApplication::translate("MainWindow", "Calculate", nullptr));
+        calculateCurrentValuesButton->setText(QCoreApplication::translate("MainWindow", "Calculate with values", nullptr));
         gutterInvariableCheckBox->setText(QCoreApplication::translate("MainWindow", "Invariable", nullptr));
         gutterPreferredCheckBox->setText(QCoreApplication::translate("MainWindow", "Preferred", nullptr));
         columnInvariableCheckBox->setText(QCoreApplication::translate("MainWindow", "Invariable", nullptr));
@@ -168,7 +192,9 @@ public:
         ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Width", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Margin", nullptr));
-        calculateDefaultsButton->setText(QCoreApplication::translate("MainWindow", "Calculate", nullptr));
+        findSolutionButton->setText(QCoreApplication::translate("MainWindow", "Find Solution", nullptr));
+        minLabel->setText(QCoreApplication::translate("MainWindow", "Min", nullptr));
+        maxLabel->setText(QCoreApplication::translate("MainWindow", "Max", nullptr));
     } // retranslateUi
 
 };

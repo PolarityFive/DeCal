@@ -13,6 +13,6 @@ class CalculationService
 private:
 public:
 	CalculationService();
-	vector<ResultValues> calculateNoPrefs(Width width, Margin margin, Gutter gutter, Columns columns);
-	vector<ResultValues> calculateDefaults(Width width, Margin margin, Gutter gutter, Columns columns);
+	vector<ResultValues> calculateCurrentValues(Width width, Margin margin, Gutter gutter, Columns columns);
+	vector<ResultValues> calculate(Width width, Margin margin, Gutter gutter, Columns columns);
 };
