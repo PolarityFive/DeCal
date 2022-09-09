@@ -16,7 +16,4 @@ public:
 	bool validateValues(Width width, Margin margin, Gutter gutter, Columns columns);
 
 	std::vector<ResultValues> handleCalculation(Width width, Margin margin, Gutter gutter, Columns columns);
-	std::vector<ResultValues> handleDefaultCalculation(Width width, Margin margin, Gutter gutter, Columns columns);
-
-
 };

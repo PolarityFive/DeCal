@@ -32,11 +32,8 @@ public:
     QLabel *marginLabel;
     QLabel *gutterSizeLabel;
     QLabel *columnsLabel;
-    QPushButton *calculateCurrentValuesButton;
     QCheckBox *gutterInvariableCheckBox;
-    QCheckBox *gutterPreferredCheckBox;
     QCheckBox *columnInvariableCheckBox;
-    QCheckBox *columnPreferredCheckBox;
     QLineEdit *widthLineEdit;
     QLineEdit *marginLineEdit;
     QLineEdit *gutterSizeLineEdit;
@@ -81,27 +78,14 @@ public:
         columnsLabel->setObjectName(QString::fromUtf8("columnsLabel"));
         columnsLabel->setGeometry(QRect(0, 150, 101, 20));
         columnsLabel->setFont(font1);
-        calculateCurrentValuesButton = new QPushButton(centralwidget);
-        calculateCurrentValuesButton->setObjectName(QString::fromUtf8("calculateCurrentValuesButton"));
-        calculateCurrentValuesButton->setEnabled(true);
-        calculateCurrentValuesButton->setGeometry(QRect(250, 200, 251, 41));
-        calculateCurrentValuesButton->setMinimumSize(QSize(20, 20));
-        calculateCurrentValuesButton->setFont(font1);
         gutterInvariableCheckBox = new QCheckBox(centralwidget);
         gutterInvariableCheckBox->setObjectName(QString::fromUtf8("gutterInvariableCheckBox"));
         gutterInvariableCheckBox->setGeometry(QRect(290, 110, 81, 21));
-        gutterInvariableCheckBox->setChecked(true);
-        gutterPreferredCheckBox = new QCheckBox(centralwidget);
-        gutterPreferredCheckBox->setObjectName(QString::fromUtf8("gutterPreferredCheckBox"));
-        gutterPreferredCheckBox->setGeometry(QRect(400, 110, 81, 21));
-        gutterPreferredCheckBox->setChecked(false);
+        gutterInvariableCheckBox->setChecked(false);
         columnInvariableCheckBox = new QCheckBox(centralwidget);
         columnInvariableCheckBox->setObjectName(QString::fromUtf8("columnInvariableCheckBox"));
         columnInvariableCheckBox->setGeometry(QRect(290, 150, 81, 21));
-        columnInvariableCheckBox->setChecked(true);
-        columnPreferredCheckBox = new QCheckBox(centralwidget);
-        columnPreferredCheckBox->setObjectName(QString::fromUtf8("columnPreferredCheckBox"));
-        columnPreferredCheckBox->setGeometry(QRect(400, 150, 81, 21));
+        columnInvariableCheckBox->setChecked(false);
         widthLineEdit = new QLineEdit(centralwidget);
         widthLineEdit->setObjectName(QString::fromUtf8("widthLineEdit"));
         widthLineEdit->setGeometry(QRect(130, 30, 41, 22));
@@ -165,7 +149,6 @@ public:
 
         retranslateUi(MainWindow);
 
-        calculateCurrentValuesButton->setDefault(false);
         findSolutionButton->setDefault(false);
 
 
@@ -179,11 +162,8 @@ public:
         marginLabel->setText(QCoreApplication::translate("MainWindow", "Margin", nullptr));
         gutterSizeLabel->setText(QCoreApplication::translate("MainWindow", "Gutter Size", nullptr));
         columnsLabel->setText(QCoreApplication::translate("MainWindow", "Columns", nullptr));
-        calculateCurrentValuesButton->setText(QCoreApplication::translate("MainWindow", "Calculate with values", nullptr));
         gutterInvariableCheckBox->setText(QCoreApplication::translate("MainWindow", "Invariable", nullptr));
-        gutterPreferredCheckBox->setText(QCoreApplication::translate("MainWindow", "Preferred", nullptr));
         columnInvariableCheckBox->setText(QCoreApplication::translate("MainWindow", "Invariable", nullptr));
-        columnPreferredCheckBox->setText(QCoreApplication::translate("MainWindow", "Preferred", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Columns", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);

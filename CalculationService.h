@@ -11,8 +11,8 @@ using namespace std;
 class CalculationService
 {
 private:
+
 public:
 	CalculationService();
-	vector<ResultValues> calculateCurrentValues(Width width, Margin margin, Gutter gutter, Columns columns);
 	vector<ResultValues> calculate(Width width, Margin margin, Gutter gutter, Columns columns);
 };

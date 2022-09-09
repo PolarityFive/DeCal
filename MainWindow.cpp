@@ -13,33 +13,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     this->setStyleSheet("background: rgb(46, 47, 48)");
     styleText();
-    connect(ui->calculateCurrentValuesButton, &QPushButton::clicked, this, &MainWindow::handleCurrentValuesButtonClick);
     connect(ui->findSolutionButton, &QPushButton::clicked, this, &MainWindow::handleFindSolutionButtonClick);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::handleCurrentValuesButtonClick()
-{
-    vector<ResultValues> resultList;
-
-    Width width;
-    Margin margin;
-    Gutter gutter;
-    Columns columns;
-    CalculationController calculationController;
-
-    getDataFromUi(width, margin, gutter, columns);
-    if (calculationController.validateValues(width, margin, gutter, columns))
-    {
-        resultList = calculationController.handleCalculation(width, margin, gutter, columns);
-        displayResults(resultList);
-    }
-    //this->setStyleSheet("background: rgb(255, 255, 255)");
-
 }
 
 void MainWindow::handleFindSolutionButtonClick()
@@ -52,10 +31,10 @@ void MainWindow::handleFindSolutionButtonClick()
     Columns columns;
     CalculationController calculationController;
 
-    getDataFromUi(width, margin);
+    getDataFromUi(width, margin, gutter, columns);
     if (calculationController.validateValues(width, margin, gutter, columns)) 
     {
-        resultList = calculationController.handleDefaultCalculation(width, margin, gutter, columns);
+        resultList = calculationController.handleCalculation(width, margin, gutter, columns);
         processResults(resultList);
         displayResults(resultList);
     }
@@ -66,6 +45,12 @@ void MainWindow::getDataFromUi(Width& width, Margin& margin, Gutter& gutter, Col
     if ((!ui->gutterSizeLineEdit->text().isEmpty()) && (!ui->gutterSizeLineEdit->text().isNull()))
         gutter.setSize(ui->gutterSizeLineEdit->text().toUInt());
 
+	if ((!ui->gutterSizeMinLineEdit->text().isEmpty()) && (!ui->gutterSizeMinLineEdit->text().isNull()))
+		gutter.setMin(ui->gutterSizeMinLineEdit->text().toUInt());
+
+	if ((!ui->gutterSizeMaxLineEdit->text().isEmpty()) && (!ui->gutterSizeMaxLineEdit->text().isNull()))
+		gutter.setMax(ui->gutterSizeMaxLineEdit->text().toUInt());
+
     if ((!ui->widthLineEdit->text().isEmpty()) && (!ui->widthLineEdit->text().isNull()))
         width.setWidth(ui->widthLineEdit->text().toUInt());
 
@@ -75,16 +60,14 @@ void MainWindow::getDataFromUi(Width& width, Margin& margin, Gutter& gutter, Col
     if ((!ui->columnsLineEdit->text().isEmpty()) && (!ui->columnsLineEdit->text().isNull()))
         columns.setColumns(ui->columnsLineEdit->text().toUInt());
 
-    gutter.setInvariable(ui->gutterInvariableCheckBox->isChecked());
-    gutter.setPreferred(ui->gutterPreferredCheckBox->isChecked());
-    columns.setInvariable(ui->columnInvariableCheckBox->isChecked());
-    columns.setPreferred(ui->columnPreferredCheckBox->isChecked());
-}
+	if ((!ui->columnsMinLineEdit->text().isEmpty()) && (!ui->columnsMinLineEdit->text().isNull()))
+		columns.setMin(ui->columnsMinLineEdit->text().toUInt());
 
-void MainWindow::getDataFromUi(Width& width, Margin& margin)
-{
-    width.setWidth(ui->widthLineEdit->text().toUInt());
-    margin.setMargin(ui->marginLineEdit->text().toUInt());
+	if ((!ui->columnsMaxLineEdit->text().isEmpty()) && (!ui->columnsMaxLineEdit->text().isNull()))
+		columns.setMax(ui->columnsMaxLineEdit->text().toUInt());
+
+    gutter.setInvariable(ui->gutterInvariableCheckBox->isChecked());
+    columns.setInvariable(ui->columnInvariableCheckBox->isChecked());
 }
 
 void MainWindow::displayResults(std::vector<ResultValues>& resultList)
@@ -137,7 +120,6 @@ void MainWindow::processResults(std::vector<ResultValues>& resultList) //TODO Sw
 void MainWindow::styleText()
 {
     ui->findSolutionButton->setStyleSheet("color: rgb(255, 255, 255)");
-    ui->calculateCurrentValuesButton->setStyleSheet("color: rgb(255, 255, 255)");
     ui->columnsLabel->setStyleSheet("color: rgb(255, 255, 255)");
     ui->gutterSizeLabel->setStyleSheet("color: rgb(255, 255, 255)");
     ui->marginLabel->setStyleSheet("color: rgb(255, 255, 255)");
@@ -146,13 +128,10 @@ void MainWindow::styleText()
     ui->minLabel->setStyleSheet("color: rgb(255, 255, 255)");
     ui->columnInvariableCheckBox->setStyleSheet("color: rgb(255, 255, 255)");
     ui->gutterInvariableCheckBox->setStyleSheet("color: rgb(255, 255, 255)");
-    ui->columnPreferredCheckBox->setStyleSheet("color: rgb(255, 255, 255)");
-    ui->gutterPreferredCheckBox->setStyleSheet("color: rgb(255, 255, 255)");
 
     ui->columnsLineEdit->setStyleSheet("color: rgb(255, 255, 255)");
     ui->columnsMaxLineEdit->setStyleSheet("color: rgb(255, 255, 255)");
     ui->columnsMinLineEdit->setStyleSheet("color: rgb(255, 255, 255)");
-
 
     ui->gutterSizeLineEdit->setStyleSheet("color: rgb(255, 255, 255)");
     ui->gutterSizeMaxLineEdit->setStyleSheet("color: rgb(255, 255, 255)");

@@ -2,8 +2,7 @@
 
 BaseElement::BaseElement()
 {
-    this->invariable = true;
-    this->preferred = false;
+    this->invariable = false;
 }
 
 bool BaseElement::isInvariable()
@@ -11,19 +10,9 @@ bool BaseElement::isInvariable()
     return (this->invariable);
 }
 
-bool BaseElement::isPreferred()
-{
-    return(this->preferred);
-}
-
 void BaseElement::setInvariable(bool invariable)
 {
     this->invariable = invariable;
-}
-
-void BaseElement::setPreferred(bool preferred)
-{
-    this->preferred = preferred;
 }
 
 void BaseElement::setMin(unsigned int min)
@@ -43,7 +32,7 @@ unsigned int BaseElement::getMin()
 
 unsigned int BaseElement::getMax()
 {
-    return(this->max);
+    return (this->max);
 }
 
 

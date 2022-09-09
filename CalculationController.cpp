@@ -26,19 +26,7 @@ bool CalculationController::validateValues(Width width, Margin margin, Gutter gu
 	return(true);
 }
 
-
 std::vector<ResultValues> CalculationController::handleCalculation(Width width, Margin margin, Gutter gutter, Columns columns)
-{
-	std::vector<ResultValues> resultList;
-
-	if (gutter.isInvariable() && columns.isInvariable())
-	{
-		resultList = this->calculationService.calculateCurrentValues(width, margin, gutter, columns);
-	}
-	return(resultList);
-}
-
-std::vector<ResultValues> CalculationController::handleDefaultCalculation(Width width, Margin margin, Gutter gutter, Columns columns)
 {
 	return(this->calculationService.calculate(width, margin, gutter, columns));
 }
